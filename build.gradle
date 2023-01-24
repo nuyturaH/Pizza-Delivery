@@ -4,6 +4,7 @@ plugins {
     id 'com.android.library' version '7.3.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.7.20' apply false
+    id 'com.google.dagger.hilt.android' version '2.44.2' apply false
 }
 
 ext {
@@ -14,9 +15,17 @@ ext {
 
     // App dependencies
     coreKtxVersion = "1.9.0"
+
     appcompatVersion = "1.6.0"
     materialVersion = "1.7.0"
     constraintlayoutVersion = "2.1.4"
+
+    retrofitVersion = "2.9.0"
+    moshiVersion = "1.13.0"
+    okhttpVersion = "4.10.0"
+
+    hiltVersion = "2.44.2"
+
     junitVersion = "4.13.2"
     androidJunitVersion = "1.1.5"
     esspresoVersion = "3.5.1"

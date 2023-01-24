@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def baseUrl = "\"https://static.mozio.com/mobile/\""
+
 android {
     namespace 'com.harutyun.data'
     compileSdk rootProject.compileSdkVersion
@@ -20,6 +22,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            buildConfigField "String", "BASE_URL", baseUrl
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -31,8 +36,19 @@ android {
 }
 
 dependencies {
-
     implementation "androidx.core:core-ktx:$coreKtxVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+
+    // Okhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // Testing
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidJunitVersion"
 }
