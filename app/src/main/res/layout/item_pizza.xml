@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/tv_name_item_pizza"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_price_item_pizza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mozzarella" />
+
+        <TextView
+            android:id="@+id/tv_price_item_pizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_name_item_pizza"
+            tools:text="$10" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_full_item_pizza"
+            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:enabled="true"
+            android:text="@string/full"
+            app:icon="@drawable/ic_shopping_cart"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_item_pizza"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_item_pizza" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_half_item_pizza"
+            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/half"
+            app:icon="@drawable/ic_shopping_cart"
+            app:layout_constraintStart_toEndOf="@+id/btn_full_item_pizza"
+            app:layout_constraintTop_toTopOf="@+id/btn_full_item_pizza" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
