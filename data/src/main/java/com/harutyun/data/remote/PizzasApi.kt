@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface PizzasApi {
 
     @GET("tests/pizzas.json")
-    suspend fun getExchangeRates(): List<PizzaEntity>
+    suspend fun getPizzas(): List<PizzaEntity>
 }

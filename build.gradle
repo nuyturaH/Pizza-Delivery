@@ -19,6 +19,11 @@ ext {
     appcompatVersion = "1.6.0"
     materialVersion = "1.7.0"
     constraintlayoutVersion = "2.1.4"
+    swiperefreshlayoutVersion = "1.1.0"
+
+    lifecycleVersion = "2.5.1"
+    navVersion = "2.5.3"
+    fragmentKtxVersion = "1.5.5"
 
     retrofitVersion = "2.9.0"
     moshiVersion = "1.13.0"

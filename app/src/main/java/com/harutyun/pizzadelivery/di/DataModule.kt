@@ -7,6 +7,8 @@ import com.harutyun.data.remote.PizzasApiRemoteDataSource
 import com.harutyun.data.remote.PizzasRemoteDataSource
 import com.harutyun.data.repository.PizzasRepositoryImpl
 import com.harutyun.domain.repository.PizzasRepository
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +25,7 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideGithubReposRemoteDataSource(pizzasApi: PizzasApi): PizzasApiRemoteDataSource {
+    fun providePizzasRemoteDataSource(pizzasApi: PizzasApi): PizzasRemoteDataSource {
         return PizzasApiRemoteDataSource(pizzasApi)
     }
 
@@ -61,10 +63,14 @@ class DataModule {
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
 
