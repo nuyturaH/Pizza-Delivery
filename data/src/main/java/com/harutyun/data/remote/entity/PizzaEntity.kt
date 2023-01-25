@@ -8,5 +8,5 @@ data class PizzaEntity (
     val name  : String,
 
     @Json(name = "price")
-    val price : Int
+    val price : Double
 )
