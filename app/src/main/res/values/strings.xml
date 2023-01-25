@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Pizza Delivery</string>
     <string name="confirm">Confirm</string>
-    <string name="full">Full</string>
-    <string name="half">Half</string>
+    <string name="no_data">No Data</string>
+    <string name="added">Added</string>
+    <string name="add">Add</string>
+    <string name="remove">remove</string>
+
+    <string-array name="pizza_size">
+        <item>Full</item>
+        <item>Half</item>
+    </string-array>
 </resources>

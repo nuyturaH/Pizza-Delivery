@@ -10,6 +10,7 @@ sealed class MenuUiState {
     ) : MenuUiState()
 
     object Loading : MenuUiState()
+    object Refreshing : MenuUiState()
     object NoData : MenuUiState()
     data class Error(val errorMessage: String) : MenuUiState()
 

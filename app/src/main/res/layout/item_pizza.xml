@@ -8,11 +8,26 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_item_pizza"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_item_pizza">
+
+            <Spinner
+                android:id="@+id/spinner_item_pizza"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:entries="@array/pizza_size" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tv_name_item_pizza"
@@ -40,27 +55,29 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_full_item_pizza"
-            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:enabled="true"
-            android:text="@string/full"
-            app:icon="@drawable/ic_shopping_cart"
-            app:layout_constraintStart_toStartOf="@+id/tv_name_item_pizza"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_item_pizza" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_half_item_pizza"
-            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+            android:id="@+id/btn_add_item_pizza"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/half"
+            android:text="@string/add"
             app:icon="@drawable/ic_shopping_cart"
-            app:layout_constraintStart_toEndOf="@+id/btn_full_item_pizza"
-            app:layout_constraintTop_toTopOf="@+id/btn_full_item_pizza" />
+            app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+            app:layout_constraintStart_toEndOf="@+id/materialCardView"
+            app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+        <ImageView
+            android:id="@+id/iv_remove_item_pizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/remove"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_add_item_pizza"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_add_item_pizza"
+            app:srcCompat="@drawable/ic_remove" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
