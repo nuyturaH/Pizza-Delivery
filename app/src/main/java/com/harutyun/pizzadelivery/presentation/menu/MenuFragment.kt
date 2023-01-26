@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.harutyun.domain.model.Pizza
+import com.harutyun.pizzadelivery.R
 import com.harutyun.pizzadelivery.databinding.FragmentMenuBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -85,6 +87,10 @@ class MenuFragment : Fragment() {
     private fun addViewListeners() = with(binding) {
         srlPizzasMenu.setOnRefreshListener {
             menuViewModel.getPizzas()
+        }
+
+        fabConfirmMenu.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_orderSuccessfulFragment)
         }
     }
 
