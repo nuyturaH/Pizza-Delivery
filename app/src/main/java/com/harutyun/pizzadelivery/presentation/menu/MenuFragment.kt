@@ -103,4 +103,10 @@ class MenuFragment : Fragment() {
             adapter = pizzaAdapter
         }
     }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

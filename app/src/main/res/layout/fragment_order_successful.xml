@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".presentation.ordersuccessful.OrderSuccessfulFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="Summary:" />
+
+        <TextView
+            android:id="@+id/tv_summery_order_successful"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="- Mozzarella (Half) - $3\n- Pepperoni (Half) - $4.5" />
+
+        <TextView
+            android:id="@+id/tv_total_price_order_successful"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="Total price: $7.5" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
