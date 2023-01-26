@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.harutyun.pizzadelivery.databinding.FragmentOrderSuccessfulBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrderSuccessfulFragment : Fragment() {
 
     private var _binding: FragmentOrderSuccessfulBinding? = null
@@ -26,6 +29,23 @@ class OrderSuccessfulFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        observeState()
+
+    }
+
+    private fun handleUiState(uiState: OrderSuccessfulUiState) = with(binding) {
+        tvSummeryOrderSuccessful.text = uiState.summery
+        tvTotalPriceOrderSuccessful.text = uiState.totalPrice
+    }
+
+
+    private fun observeState() {
+        lifecycleScope.launchWhenStarted {
+            orderSuccessfulViewModel.uiState.collect { uiState ->
+                handleUiState(uiState)
+            }
+        }
     }
 
 

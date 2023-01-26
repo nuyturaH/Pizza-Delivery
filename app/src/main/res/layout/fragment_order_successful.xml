@@ -13,13 +13,6 @@
         tools:context=".presentation.ordersuccessful.OrderSuccessfulFragment">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            tools:text="Summary:" />
-
-        <TextView
             android:id="@+id/tv_summery_order_successful"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
