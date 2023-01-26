@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.harutyun.domain.model.Pizza
-import com.harutyun.domain.model.PizzaSize
 import com.harutyun.pizzadelivery.databinding.FragmentMenuBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,13 +34,11 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         setupPizzasRecyclerView()
 
         addViewListeners()
 
         observeState()
-
     }
 
     private fun observeState() {
@@ -68,6 +66,11 @@ class MenuFragment : Fragment() {
                 tvErrorMenu.visibility = View.GONE
                 rvPizzasMenu.visibility = View.VISIBLE
 
+                if (uiState.snackBarMessage != null) {
+                    Snackbar.make(binding.root, getString(uiState.snackBarMessage), Snackbar.LENGTH_SHORT).show()
+                    menuViewModel.snackBarMessageIsShown()
+                }
+
                 if (uiState.isConfirmButtonVisible) fabConfirmMenu.show() else fabConfirmMenu.hide()
                 (rvPizzasMenu.adapter as PizzasAdapter).submitList(uiState.pizzas)
             }
@@ -76,7 +79,6 @@ class MenuFragment : Fragment() {
                 tvNoDataMenu.visibility = View.VISIBLE
                 rvPizzasMenu.visibility = View.GONE
             }
-            MenuUiState.Refreshing -> {}
         }
     }
 
@@ -88,16 +90,12 @@ class MenuFragment : Fragment() {
 
     private fun setupPizzasRecyclerView() {
         val pizzaAdapter = PizzasAdapter(object : PizzasAdapter.OnItemClickListener {
-            override fun onAddButtonClicked(pizza: Pizza, size: PizzaSize) {
-                menuViewModel.addPizza(pizza, size)
+            override fun onAddButtonClicked(pizza: Pizza) {
+                menuViewModel.addPizza(pizza)
             }
 
-            override fun onRemoveButtonClicked(pizza: Pizza, size: PizzaSize) {
-                menuViewModel.removePizza(pizza, size)
-            }
-
-            override fun onSizeSelected(pizza: Pizza, size: PizzaSize) {
-                menuViewModel.changePizzaSize(pizza, size)
+            override fun onRemoveButtonClicked(pizza: Pizza) {
+                menuViewModel.removePizza(pizza)
             }
         })
         binding.rvPizzasMenu.apply {

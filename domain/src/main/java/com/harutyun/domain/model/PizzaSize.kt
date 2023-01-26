@@ -1,6 +1,5 @@
 package com.harutyun.domain.model
 
-sealed class PizzaSize {
-    object Full: PizzaSize()
-    object Half: PizzaSize()
+enum class PizzaSize(val position: Int) {
+    Full(0), Half(1)
 }

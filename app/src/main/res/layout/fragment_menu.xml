@@ -31,7 +31,9 @@
         android:clickable="true"
         android:focusable="true"
         android:text="@string/confirm"
-        app:icon="@drawable/ic_check" />
+        android:visibility="gone"
+        app:icon="@drawable/ic_check"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_no_data_menu"

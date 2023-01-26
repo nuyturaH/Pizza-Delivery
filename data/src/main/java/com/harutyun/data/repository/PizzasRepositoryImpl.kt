@@ -10,7 +10,17 @@ class PizzasRepositoryImpl(
     private val pizzaMapper: PizzaMapper
 ) : PizzasRepository {
 
+    var addedPizzaList = emptyList<Pizza>()
+
     override suspend fun getPizzas(): List<Pizza> {
         return pizzaMapper.mapListToDomain(pizzasRemoteDataSource.getPizzas())
+    }
+
+    override fun getAddedPizzas(): List<Pizza> {
+        return addedPizzaList
+    }
+
+    override fun saveAddedPizzas(pizzas: List<Pizza>) {
+        addedPizzaList = pizzas
     }
 }
