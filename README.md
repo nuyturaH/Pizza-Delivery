@@ -10,3 +10,8 @@ turn have access to local and remote data. I used a Repository pattern to provid
 For the asynchronous programming we have Kotlin Coroutines. For now it is the best clean and powerful library for working with Kotlin.
 
 Tech stack is - Kotlin, Hilt, Moshi, Retrofit, Clean Architecture + MVVM, Kotlin Coroutines, Jetpack Navigation component. 
+
+<p float="left">
+  <img src="https://drive.google.com/uc?export=view&id=1B4PRrV46DDEYK4jikXn5LE_X10kfVjj0" style="width: auto; max-width: 100%; height: 360px"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://drive.google.com/uc?export=view&id=1xFXVcr7peJdDmixDtVUry-_7f5yffnzW" style="width: auto; max-width: 100%; height: 360px"/>
+</p>
