@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -68,6 +69,8 @@ class MenuViewModel @Inject constructor(
                             )
                         }
                     }
+                } catch (e: IOException) {
+                    _uiState.update { MenuUiState.Error("No Internet Connection") }
                 } catch (e: Exception) {
                     _uiState.update { MenuUiState.Error(e.localizedMessage ?: "") }
                 }

@@ -61,6 +61,7 @@ class MenuFragment : Fragment() {
                 tvErrorMenu.text = uiState.errorMessage
                 tvErrorMenu.visibility = View.VISIBLE
                 rvPizzasMenu.visibility = View.GONE
+                fabConfirmMenu.hide()
             }
             is MenuUiState.Success -> {
                 srlPizzasMenu.isRefreshing = false
@@ -80,6 +81,7 @@ class MenuFragment : Fragment() {
                 srlPizzasMenu.isRefreshing = false
                 tvNoDataMenu.visibility = View.VISIBLE
                 rvPizzasMenu.visibility = View.GONE
+                fabConfirmMenu.hide()
             }
         }
     }
