@@ -4,6 +4,22 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    // JUnit 5
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitJupiterVersion"
+
+    // Mockito framework
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+    // Mockito-kotlin
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
 }

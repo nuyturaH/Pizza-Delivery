@@ -33,5 +33,8 @@ ext {
 
     junitVersion = "4.13.2"
     androidJunitVersion = "1.1.5"
+    junitJupiterVersion = "5.8.2"
+    mockitoVersion = "5.0.0"
+    mockitoKotlinVersion = "4.1.0"
     esspresoVersion = "3.5.1"
 }
