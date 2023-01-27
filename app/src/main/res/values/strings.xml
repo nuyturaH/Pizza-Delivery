@@ -6,6 +6,7 @@
     <string name="add">Add</string>
     <string name="remove">remove</string>
     <string name="adding_message">You can only add one full pizza or two half pizzas</string>
+    <string name="total_price">"Total price: $%s"</string>
 
     <string-array name="pizza_size">
         <item>Full</item>

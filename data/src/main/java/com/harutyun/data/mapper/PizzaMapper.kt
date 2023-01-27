@@ -12,7 +12,7 @@ class PizzaMapper {
     fun mapToDomain(input: PizzaEntity): Pizza {
         return Pizza(
             name = input.name,
-            price = input.price,
+            price = input.price.toBigDecimal(),
         )
     }
 }

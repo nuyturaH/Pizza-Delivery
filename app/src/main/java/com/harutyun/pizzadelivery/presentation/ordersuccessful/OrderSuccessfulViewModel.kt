@@ -22,11 +22,10 @@ class OrderSuccessfulViewModel @Inject constructor(
 
     init {
         val pizzaStringList =
-            getAddedPizzasUseCase().map { "– ${it.name} (${it.pizzaSize.name}) – $${it.realPrice}" }
+            getAddedPizzasUseCase().map { "– ${it.name} (${it.pizzaSize.name}) – ${it.realPriceWithSymbol}" }
         val summery = pizzaStringList.joinToString(separator = "\n")
+        val totalPrice = getTotalPriceUseCase(getAddedPizzasUseCase())
 
-        val totalPriceString = "Total price: $${getTotalPriceUseCase(getAddedPizzasUseCase())}"
-
-        _uiState.update { it.copy(summery = summery, totalPrice = totalPriceString) }
+        _uiState.update { it.copy(summery = summery, totalPrice = totalPrice) }
     }
 }

@@ -37,7 +37,7 @@ internal class PizzasAdapter(onItemClickListener: OnItemClickListener) :
         holder.binding.apply {
 
             tvNameItemPizza.text = pizza.name
-            tvPriceItemPizza.text = pizza.formattedPrice
+            tvPriceItemPizza.text = pizza.priceWithSymbol
 
             if (pizza.isAdded) {
                 btnAddItemPizza.isEnabled = false
